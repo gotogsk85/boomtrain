@@ -66,7 +66,7 @@ angular.module("test",[])
       console.log("error in api response");
      },
      _scrollCb = function(e){
-        var lastItem = angular.element(document.getElementsByClassName('lastItem_'+$scope.data.id));
+        var lastItem = angular.element(document.getElementsByClassName('lastItem'));
 	    if(elemInViewportSvc.isScrolledIntoView(lastItem[0])){
           console.log("lastItem found !");          
 		  $scope.data.id = _getNextId() ;
