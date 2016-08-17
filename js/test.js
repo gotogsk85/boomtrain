@@ -10,7 +10,7 @@ angular.module("test",[])
 	    var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
 	    return isVisible;
     };
-  })
+  });
   .factory('ajaxCallFact', function($http,baseUrl) {
     return {
       getData: function(id) {
@@ -19,10 +19,22 @@ angular.module("test",[])
     }
   })
   .service("dataStructureSVCs",function(){
-	  this.repositoryClass = function(){
+	  var svcObj = this;
+	  svcObj.OwnerClass = function(ownerObj){
+		  this.login = ownerObj.login;
+		  this.type = type;
+	  }	  
+	  svcObj.RepositoryClass = function(respObj){
+		this.owner = new svcObj.OwnerClass(respObj.owner) ;
+		this.name = respObj.name;
+		this.full_name = respObj.full_name;
+		this.url = url;
+	  }
+	  svcObj.RepositoryClass.prototype.getFullname = function(){
+		  return this.full_name;
 	  }
   })
-.controller("mainCtrl",function($scope,ajaxCallFact,elemInViewportSvc,$document){
+.controller("mainCtrl",function($scope,ajaxCallFact,elemInViewportSvc,$document,dataStructureSVCs){
  var vm = this ;
  $scope.data = {id:862};
  $scope.data.results = [],nextId = "";
@@ -49,7 +61,8 @@ angular.module("test",[])
  
  function _setResponseData(resp){
 	 for(var c=0;c<resp.length;c++){
-		 $scope.data.results.push(resp[c]);
+		 var rep = new dataStructureSVCs.RepositoryClass(resp[c]);
+		 $scope.data.results.push(rep);
 	 }
  }
   
