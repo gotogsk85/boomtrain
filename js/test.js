@@ -10,7 +10,7 @@ angular.module("test",[])
 	    var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
 	    return isVisible;
     };
-  });
+  })
   .factory('ajaxCallFact', function($http,baseUrl) {
     return {
       getData: function(id) {
