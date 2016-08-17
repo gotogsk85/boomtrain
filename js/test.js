@@ -43,7 +43,7 @@ angular.module("test",[])
  */
 
  var _successCb = function(resp){
-      console.log(resp.headers()["Link"]); 
+      console.log(resp.headers()); 
        $scope.data.results = $scope.data.results.concat(resp.data);
      },
      _errorCb = function(err){
