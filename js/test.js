@@ -72,7 +72,7 @@ angular.module("test",[])
 		  ajaxCallFact.getData(_getNextId()).then(_successCb,_errorCb);
         }
      };
- ajaxCallFact.getData($scope.data.id).then(_successCb,_errorCb);
+ ajaxCallFact.getData(this.data.id).then(_successCb,_errorCb);
  angular.element($document).on('scroll', _scrollCb);
    
 })
