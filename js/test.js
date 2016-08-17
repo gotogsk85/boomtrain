@@ -23,16 +23,30 @@ angular.module("test",[])
 	  svcObj.OwnerClass = function(ownerObj){
 		  this.login = ownerObj.login;
 		  this.type = ownerObj.type;
-	  }	  
+	  }
+	  
 	  svcObj.RepositoryClass = function(respObj){
 		this.owner = new svcObj.OwnerClass(respObj.owner) ;
 		this.name = respObj.name;
 		this.full_name = respObj.full_name;
 		this.url = respObj.url;
 	  }
-	  svcObj.RepositoryClass.prototype.getFullname = function(){
+	  // just using getters to extract the variable names 
+	  svcObj.RepositoryClass.prototype.getRepoUrl = function(){
+		  return this.url;
+	  }	  	  
+	  svcObj.RepositoryClass.prototype.getRepoName = function(){
+		  return this.name;
+	  }	  
+	  svcObj.RepositoryClass.prototype.getFullName = function(){
 		  return this.full_name;
 	  }
+	  svcObj.RepositoryClass.prototype.getOwnerLogin = function(){
+		  return this.owner.login;
+	  }	  
+	  svcObj.RepositoryClass.prototype.getOwnerType = function(){
+		  return this.owner.type;
+	  }	  	  
   })
 .controller("mainCtrl",function($scope,ajaxCallFact,elemInViewportSvc,$document,dataStructureSVCs){
  var vm = this ;
