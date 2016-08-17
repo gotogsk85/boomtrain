@@ -1,3 +1,5 @@
+body{background-color:#eaeaea;}
+.container{box-shadow:0 0 25px #000;margin-top:30px;margin-bottom:30px;}
 .headerDiv > div,.dataDiv > div{padding:10px;text-align:center;}
 .headerDiv{background-color:#000;}
 .headerDiv > div{font-weight:bold;font-size:16px;color:#fff;}
