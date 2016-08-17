@@ -22,7 +22,7 @@ angular.module("test",[])
 	  var svcObj = this;
 	  svcObj.OwnerClass = function(ownerObj){
 		  this.login = ownerObj.login;
-		  this.type = type;
+		  this.type = ownerObj.type;
 	  }	  
 	  svcObj.RepositoryClass = function(respObj){
 		this.owner = new svcObj.OwnerClass(respObj.owner) ;
