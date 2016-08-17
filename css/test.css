@@ -1,5 +1,5 @@
 .headerDiv > div,.dataDiv > div{padding:10px;text-align:center;}
 .headerDiv{background-color:#eee;}
 .headerDiv > div{font-weight:bold;font-size:16px;}
-.dataDiv:odd{background-color:#fff;}
-.dataDiv:even{background-color:#ccc;}
+.dataDiv:nth-of-type(odd){background-color:#fff;}
+.dataDiv:nth-of-type(even){background-color:#ccc;}
