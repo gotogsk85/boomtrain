@@ -50,12 +50,15 @@ angular.module("test",[])
 	 return nextId;
  }
  
- $scope.setObject = function(obj,index){	 
-	 console.log(index);
+ function _setResponseData(resp){
+	 for(var c=0;c<=resp.length;c++){
+		 $scope.data.results.push(resp[c]);
+	 }
  }
- 
+  
  var _successCb = function(resp){
-       $scope.data.results = $scope.data.results.concat(resp.data);	   
+	   _setResponseData(resp.data);
+       //$scope.data.results = $scope.data.results.concat(resp.data);	   
 	   //$scope.data.results = resp.data;	   
 	   var link = resp.headers()["link"],
 	       pat = /(since=)\d+/gi,
