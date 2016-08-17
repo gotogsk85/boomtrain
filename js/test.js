@@ -27,8 +27,8 @@ angular.module("test",[])
 
 .controller("mainCtrl",function($scope,ajaxCallFact,elemInViewportSvc,$document){
  
- $scope.data = {id:862};
- $scope.data.results = [],nextId = "";
+ this.data = {id:862};
+ this.data.results = [],nextId = "";
 /*
  function Owner(ownerObj){
    this.loginName = ownerObj.loginName;
@@ -55,7 +55,7 @@ angular.module("test",[])
  }
  
  var _successCb = function(resp){
-       $scope.data.results = $scope.data.results.concat(resp.data);	   
+       this.data.results = this.data.results.concat(resp.data);	   
 	   //$scope.data.results = resp.data;	   
 	   var link = resp.headers()["link"],
 	       pat = /(since=)\d+/gi,
