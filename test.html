@@ -1,0 +1,30 @@
+<html ng-app="test">
+<head>
+  <title>Test</title> 	
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">			
+  <link rel="stylesheet" type="text/css" href="css/test.css">			
+</head>
+<body ng-cloak ng-controller="mainCtrl">
+
+  <div class="container" id="mainContainer">
+   <div class="row headerDiv">
+        <div class="col-xs-3">Name</div>
+	<div class="col-xs-3">Full Name</div>
+	<div class="col-xs-3">Owner Login Name</div>
+	<div class="col-xs-3">Owner Type</div>
+    </div>
+    <div class="row dataDiv" ng-class='{lastItem_{{data.id}}: (($index + 1) == data.results.length)}' ng-repeat="x in data.results">
+	<div class="col-xs-3">{{x.name}}</div>
+	<div class="col-xs-3">{{x.full_name}}</div>
+	<div class="col-xs-3"><a ng-href="{{x.url}}">{{x.owner.login}}</a></div>
+	<div class="col-xs-3">{{x.owner.type}}</div>
+    </div>
+   
+  </div>
+
+ 		
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"> </script>
+<script type="text/javascript" src="js/test.js"> </script>
+</body>
+</html>
