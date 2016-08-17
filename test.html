@@ -15,7 +15,7 @@
     </div>
 	<!-- using getter functions in RepositoryClass to extract the details -->
     <div class="row dataDiv ng-cloak" ng-class='{lastItem : (($index + 1) == data.results.length)}' ng-repeat="x in data.results">
-	<div class="col-xs-3" ng-cloak>{{x.getRepoName()}}</div>
+	<div class="col-xs-3">{{x.getRepoName()}}</div>
 	<div class="col-xs-3">{{x.getFullName()}}</div>
 	<div class="col-xs-3"><a ng-href="{{x.getRepoUrl()}}">{{x.getOwnerLogin()}}</a></div>
 	<div class="col-xs-3">{{x.getOwnerType()}}</div>
