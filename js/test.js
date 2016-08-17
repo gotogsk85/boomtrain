@@ -38,18 +38,6 @@ angular.module("test",[])
  var vm = this ;
  $scope.data = {id:862};
  $scope.data.results = [],nextId = "";
-/*
- function Owner(ownerObj){
-   this.loginName = ownerObj.loginName;
-   this.type = ownerObj.type;
- }
-
- function Repository(obj){
-   this.id = obj.id;
-   this.full_name = obj.full_name;
-   this.owner = new Owner(obj.owner);
- }
- */
 
  function _setNextId(id){
 	 nextId = id;
@@ -61,6 +49,7 @@ angular.module("test",[])
  
  function _setResponseData(resp){
 	 for(var c=0;c<resp.length;c++){
+		 // setting repository class in dataStructureSVCs service and appending it to results array .
 		 var rep = new dataStructureSVCs.RepositoryClass(resp[c]);
 		 $scope.data.results.push(rep);
 	 }
@@ -68,8 +57,6 @@ angular.module("test",[])
   
  var _successCb = function(resp){
 	   _setResponseData(resp.data);
-       //$scope.data.results = $scope.data.results.concat(resp.data);	   
-	   //$scope.data.results = resp.data;	   
 	   var link = resp.headers()["link"],
 	       pat = /(since=)\d+/gi,
 		   id = link.match(pat)[0].replace("since=","");
