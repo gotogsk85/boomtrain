@@ -28,7 +28,7 @@ angular.module("test",[])
 		this.owner = new svcObj.OwnerClass(respObj.owner) ;
 		this.name = respObj.name;
 		this.full_name = respObj.full_name;
-		this.url = url;
+		this.url = respObj.url;
 	  }
 	  svcObj.RepositoryClass.prototype.getFullname = function(){
 		  return this.full_name;
