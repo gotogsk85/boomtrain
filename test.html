@@ -14,7 +14,7 @@
 	<div class="col-xs-3">Owner Type</div>
     </div>
     <div class="row dataDiv" ng-class='{lastItem_{{data.id}}: (($index + 1) == data.results.length)}' ng-repeat="x in data.results">
-	<!--{{$index}}-->
+	{{$index}}
 	<div class="col-xs-3">{{x.name}}</div>
 	<div class="col-xs-3">{{x.full_name}}</div>
 	<div class="col-xs-3"><a ng-href="{{x.url}}">{{x.owner.login}}</a></div>
