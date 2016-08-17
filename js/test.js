@@ -55,8 +55,8 @@ angular.module("test",[])
  }
  
  var _successCb = function(resp){
-       //$scope.data.results = $scope.data.results.concat(resp.data);	   
-	   $scope.data.results = resp.data;	   
+       $scope.data.results = $scope.data.results.concat(resp.data);	   
+	   //$scope.data.results = resp.data;	   
 	   var link = resp.headers()["link"],
 	       pat = /(since=)\d+/gi,
 		   id = link.match(pat)[0].replace("since=","");
