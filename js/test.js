@@ -12,19 +12,16 @@ angular.module("test",[])
     };
   })
   .factory('ajaxCallFact', function($http,baseUrl) {
-
     return {
-
       getData: function(id) {
-		
          return $http.get(baseUrl + id);
-
       }
-
     }
-
   })
-
+  .service("dataStructureSVCs",function(){
+	  this.repositoryClass = function(){
+	  }
+  })
 .controller("mainCtrl",function($scope,ajaxCallFact,elemInViewportSvc,$document){
  var vm = this ;
  $scope.data = {id:862};
@@ -51,7 +48,7 @@ angular.module("test",[])
  }
  
  function _setResponseData(resp){
-	 for(var c=0;c<=resp.length;c++){
+	 for(var c=0;c<resp.length;c++){
 		 $scope.data.results.push(resp[c]);
 	 }
  }
