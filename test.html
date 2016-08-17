@@ -4,7 +4,7 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">			
   <link rel="stylesheet" type="text/css" href="css/test.css">			
 </head>
-<body ng-cloak ng-controller="mainCtrl as vm">
+<body ng-cloak ng-controller="mainCtrl">
 
   <div class="container" id="mainContainer">
    <div class="row headerDiv">
@@ -13,7 +13,7 @@
 	<div class="col-xs-3">Owner Login Name</div>
 	<div class="col-xs-3">Owner Type</div>
     </div>
-    <div class="row dataDiv" ng-class='{lastItem_{{vm.data.id}}: (($index + 1) == vm.data.results.length)}' ng-repeat="x in vm.data.results">
+    <div class="row dataDiv" ng-class='{lastItem_{{data.id}}: (($index + 1) == data.results.length)}' ng-repeat="x in data.results">
 	{{$index}}
 	<div class="col-xs-3">{{x.name}}</div>
 	<div class="col-xs-3">{{x.full_name}}</div>

@@ -27,8 +27,8 @@ angular.module("test",[])
 
 .controller("mainCtrl",function($scope,ajaxCallFact,elemInViewportSvc,$document){
  var vm = this ;
- vm.data = {id:862};
- vm.data.results = [],nextId = "";
+ $scope.data = {id:862};
+ $scope.data.results = [],nextId = "";
 /*
  function Owner(ownerObj){
    this.loginName = ownerObj.loginName;
@@ -55,7 +55,7 @@ angular.module("test",[])
  }
  
  var _successCb = function(resp){
-       vm.data.results = vm.data.results.concat(resp.data);	   
+       $scope.data.results = $scope.data.results.concat(resp.data);	   
 	   //$scope.data.results = resp.data;	   
 	   var link = resp.headers()["link"],
 	       pat = /(since=)\d+/gi,
@@ -66,13 +66,14 @@ angular.module("test",[])
       console.log("error in api response");
      },
      _scrollCb = function(e){
-        var lastItem = angular.element(document.getElementsByClassName('lastItem_'+vm.data.id));
+        var lastItem = angular.element(document.getElementsByClassName('lastItem_'+$scope.data.id));
 	    if(elemInViewportSvc.isScrolledIntoView(lastItem[0])){
           console.log("lastItem found !");          
+		  $scope.data.id = _getNextId() ;
 		  ajaxCallFact.getData(_getNextId()).then(_successCb,_errorCb);
         }
      };
- ajaxCallFact.getData(vm.data.id).then(_successCb,_errorCb);
+ ajaxCallFact.getData($scope.data.id).then(_successCb,_errorCb);
  angular.element($document).on('scroll', _scrollCb);
    
 })
