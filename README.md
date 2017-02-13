@@ -8,5 +8,6 @@
   The solution to the above is to use $filter in controllers, BUT a good clean alternative to that is 
    - to create a new object from every response object (that we recieve from API) and 
    - attach the array of new objects to the scope variable
-   - add functions in the new object's constructor function's prototype to get the updated values from the response variables.
+   - add functions in the new object's constructor function's prototype 
+   - these functions can be used to get the modified value of any response object properties if required
 
