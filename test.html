@@ -13,17 +13,14 @@
 	<div class="col-xs-3">Owner Login Name</div>
 	<div class="col-xs-3">Owner Type</div>
     </div>
-    <div class="row dataDiv" ng-class='{lastItem_{{data.id}}: (($index + 1) == data.results.length)}' ng-repeat="x in data.results">
-	<div class="col-xs-3">{{x.name}}</div>
-	<div class="col-xs-3">{{x.full_name}}</div>
-	<div class="col-xs-3"><a ng-href="{{x.url}}">{{x.owner.login}}</a></div>
-	<div class="col-xs-3">{{x.owner.type}}</div>
+	<!-- using getter functions in RepositoryClass to extract the details -->
+    <div class="row dataDiv ng-cloak" ng-class='{lastItem : (($index + 1) == data.results.length)}' ng-repeat="x in data.results">
+	<div class="col-xs-3">{{x.getRepoName()}}</div>
+	<div class="col-xs-3">{{x.getFullName()}}</div>
+	<div class="col-xs-3"><a ng-href="{{x.getRepoUrl()}}">{{x.getOwnerLogin()}}</a></div>
+	<div class="col-xs-3">{{x.getOwnerType()}}</div>
     </div>
-   
   </div>
-
- 		
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"> </script>
 <script type="text/javascript" src="js/test.js"> </script>
 </body>
